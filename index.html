@@ -36,11 +36,29 @@
   <label for="colore">Colore HTML delle stringhe:</label>
   <input type="color" id="colore" name="colore"><br><br>
 
+ <label for="aggiungi">Aggiungi un campo facoltativo:</label>
+  <input type="checkbox" id="aggiungi" name="aggiungi" onchange="mostraCampo()">
+
+  <div id="campo-facoltativo" style="display:none;">
+    <label for="altro">Altro:</label>
+    <input type="text" id="altro" name="altro">
+  </div><br><br>
+
 
       <input type="submit" value="Genera HTML">
     </form>
 
     <script>
+function mostraCampo() {
+  var campo = document.getElementById("campo-facoltativo");
+  if (document.getElementById("aggiungi").checked) {
+    campo.style.display = "block";
+  } else {
+    campo.style.display = "none";
+  }
+}
+
+
       const form = document.querySelector('form');
 
       form.addEventListener('submit', (event) => {
